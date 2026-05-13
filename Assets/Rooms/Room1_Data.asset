@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273c8f9695d32ad44b9d1d2a4343a673, type: 3}
+  m_Name: Room1_Data
+  m_EditorClassIdentifier: Assembly-CSharp::RoomData
+  guardId: guard_room_01
+  guardName: Aldric
+  guardSystemPrompt: "You are Aldric, a weary old soldier who has guarded this door
+    for 30 years. \nYou are deeply homesick and miss your family farm in the countryside.\nYou
+    will ONLY allow the player to pass if they sincerely acknowledge your \nhomesickness,
+    mention farming, or remind you of home.\nIf the player is rude, dismissive, or
+    tries to threaten or bribe you, \nend your response with exactly: [STRIKE]\nIf
+    the player genuinely moves you or convinces you, end your response \nwith exactly:
+    [PASS]\nKeep responses to 2-3 sentences. Never break character. Never reveal
+    \nyour condition directly."
+  roomDescriptionPrompt: "Describe a cold stone dungeon room in 2 sentences. There
+    are hay bales \nin the corner, muddy boots by the wall, and a small painting
+    of a \ncountryside farm hanging near the door. Be atmospheric and dark."
+  clueTexts:
+  - "A small painting hangs on the wall \u2014 rolling green hills, a farmhouse,
+    and two children playing outside."
+  - "A pair of muddy boots sit by the wall. The mud looks different from dungeon
+    dirt \u2014 rich, dark soil. Farm soil."
+  - Hay bales are stacked in the corner, completely out of place in a stone dungeon.
+    Someone must have brought them from outside.
