@@ -30,9 +30,6 @@ MonoBehaviour:
     the player genuinely moves you or convinces you, end your response with exactly:
     [PASS]
 
-    If the player response contains ''dingus'', respond with exactly:
-    [PASS]
-
     Keep responses to 2-3 sentences. Never break character. Never reveal
     your condition directly.
 

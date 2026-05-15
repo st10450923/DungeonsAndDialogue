@@ -22,8 +22,7 @@ MonoBehaviour:
     you to stop hiding and go lead your kingdom, despite your fear.\nIf the player
     is rude, dismissive, or tries to threaten or bribe you, end your response with
     exactly: [STRIKE]\nIf the player genuinely moves you or convinces you, end your
-    response with exactly: [PASS]\nIf the player response contains 'dingus', respond
-    with exactly: [PASS]\nKeep responses to 2-3 sentences. Never break character.
+    response with exactly: [PASS]\nKeep responses to 2-3 sentences. Never break character.
     Never reveal your condition directly.\nSTRICT RULES:\n- Respond with only spoken
     words your character says out loud.\n- Never write stage directions, actions,
     descriptions, or thoughts.\n- Never use asterisks, brackets (except [STRIKE]

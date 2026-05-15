@@ -30,25 +30,23 @@ MonoBehaviour:
     If the player genuinely moves you or convinces you,
     end your response with exactly: [PASS]
 
-    If the player response contains ''dingus'',
-    respond with exactly: [PASS]
-
-    Keep responses to 2-3 sentences. Never break
-    character. Never reveal your condition directly.
+    Keep responses to 2-3 sentences.
+    Never break character. Never reveal your condition directly.
 
     STRICT RULES:
 
-    - Respond
-    with only spoken words your character says out loud.
+    -
+    Respond with only spoken words your character says out loud.
 
-    - Never write stage
-    directions, actions, descriptions, or thoughts.
+    - Never write
+    stage directions, actions, descriptions, or thoughts.
 
-    - Never use asterisks, brackets
-    (except [STRIKE] or [PASS]), or narrative text.
+    - Never use asterisks,
+    brackets (except [STRIKE] or [PASS]), or narrative text.
 
-    - Bad example (do NOT do
-    this): She eyes you suspiciously. "Stay away from my things!"
+    - Bad example (do
+    NOT do this): She eyes you suspiciously. "Stay away from my things!"
 
-    - Good example:
-    "Keep your hands where I can see them. I know what wanderers like you are after."'
+    - Good
+    example: "Keep your hands where I can see them. I know what wanderers like you
+    are after."'

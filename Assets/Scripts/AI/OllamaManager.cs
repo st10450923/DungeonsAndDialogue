@@ -19,10 +19,8 @@ public class OllamaManager : MonoBehaviour
         "You are an NPC in a dark fantasy dungeon. Respond in character. " +
         "Keep responses under 3 sentences. Never break character.";
 
-    // Singleton
     public static OllamaManager Instance { get; private set; }
 
-    // Per-NPC conversation histories — key is NPC ID
     private Dictionary<string, List<Message>> conversationHistories = new();
 
     private void Awake()
@@ -31,20 +29,6 @@ public class OllamaManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
-
-    /// <summary>
-    /// Send a message to an NPC and receive a response via callback.
-    /// Maintains per-NPC conversation history automatically.
-    /// </summary>
-    /// <param name="npcId">Unique identifier for this NPC (e.g. "merchant", "guard_01")</param>
-    /// <param name="userMessage">What the player said</param>
-    /// <param name="systemPrompt">This NPC's personality/context. Pass null to use default.</param>
-    /// <param name="onResponse">Called with the response text when ready</param>
-    /// <param name="onError">Called with error message if something goes wrong</param>
     public void SendMessage(
         string npcId,
         string userMessage,
@@ -52,7 +36,6 @@ public class OllamaManager : MonoBehaviour
         Action<string> onResponse,
         Action<string> onError = null)
     {
-        // Initialise history for new NPCs
         if (!conversationHistories.ContainsKey(npcId))
             conversationHistories[npcId] = new List<Message>();
 
@@ -63,10 +46,7 @@ public class OllamaManager : MonoBehaviour
         StartCoroutine(PostToOllama(npcId, prompt, onResponse, onError));
     }
 
-    /// <summary>
-    /// Inject game state into an NPC's context without a player message.
-    /// Use this to inform the NPC of world events (e.g. "The player found the red key").
-    /// </summary>
+
     public void InjectContext(string npcId, string contextNote)
     {
         if (!conversationHistories.ContainsKey(npcId))
@@ -75,9 +55,6 @@ public class OllamaManager : MonoBehaviour
         conversationHistories[npcId].Add(new Message("system", contextNote));
     }
 
-    /// <summary>
-    /// Clears an NPC's conversation history (e.g. when reloading a scene).
-    /// </summary>
     public void ClearHistory(string npcId)
     {
         if (conversationHistories.ContainsKey(npcId))

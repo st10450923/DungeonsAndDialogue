@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -8,7 +7,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float interactRange = 1.5f;
     [SerializeField] private LayerMask interactableLayer;
-    [SerializeField] private AnimatorController animatorController;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField]private GameObject interactibleCenter;
@@ -21,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = animatorController;
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
@@ -45,12 +42,9 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateAnimation()
     {
-        if (animatorController == null) return;
+        if (animator == null) return;      
         animator.SetBool("Walking", moveInput != Vector2.zero);
-        if (moveInput.x >= 0)
-            spriteRenderer.flipX = false;
-        else
-            spriteRenderer.flipX = true;
+        spriteRenderer.flipX = moveInput.x < 0;
     }
     private void TryInteract()
     {
@@ -82,9 +76,7 @@ public class PlayerController : MonoBehaviour
             transform.position = spawnPoint.transform.position;
             transform.rotation = spawnPoint.transform.rotation;
         }
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null) rb.linearVelocity = Vector3.zero;
+        rb.linearVelocity = Vector2.zero;
     }
     private void OnEnable()
     {
