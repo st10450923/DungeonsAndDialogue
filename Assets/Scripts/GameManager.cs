@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private RoomData[] rooms;
+    [SerializeField] private Scene[]Levels;
     public int CurrentRoomIndex { get; private set; } = 0;
     public List<string> CollectedClues { get; private set; } = new();
 
@@ -25,17 +26,24 @@ public class GameManager : MonoBehaviour
             $"The player just read: '{clueText}'"
         );
     }
-
+    public void StartGame()
+    {
+        CurrentRoomIndex = 0;
+        CollectedClues.Clear();
+        SceneManager.LoadScene("Room1");
+    }
+    public void QuitGame()
+    {
+               Application.Quit();
+    }
     public void OnRoomCleared()
     {
+        CollectedClues.Clear();
         CurrentRoomIndex++;
         if (CurrentRoomIndex >= rooms.Length)
-        {
-            //Win screen trigger
-
-        }
+            SceneManager.LoadScene("WinScreen"); 
         else
-            SceneManager.LoadScene("DungeonRoom");
+            SceneManager.LoadScene("Room" + (1+CurrentRoomIndex)); 
     }
     public void ResetRoom()
     {
@@ -43,7 +51,8 @@ public class GameManager : MonoBehaviour
         OllamaManager.Instance.ClearHistory(rooms[CurrentRoomIndex].guardId);
         PlayerData.Instance.ResetStrikes();
 
-        FindFirstObjectByType<Door>()?.ResetDoor();
+        var door = FindFirstObjectByType<Door>();
+        if (door != null) door.ResetDoor();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

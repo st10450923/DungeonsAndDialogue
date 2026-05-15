@@ -99,7 +99,7 @@ Material:
     - _Thickness: 0.4
     - _TileMode: 0
     - _UVSec: 0
-    - _Weight: 0.437
+    - _Weight: 0.334
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

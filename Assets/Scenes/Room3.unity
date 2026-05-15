@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3733768137240438207, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.41
+      value: 4.02
       objectReference: {fileID: 0}
     - target: {fileID: 3733768137240438207, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_LocalPosition.y
@@ -221,7 +221,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: 
+      value: A polished crown, beautiful but seemingly unworn. This item must come
+        with great responsibility, but it too carries great honour. After all, not
+        just anyone can lead a kingdom...
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueSprite
@@ -401,6 +403,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &562293121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562293122}
+  m_Layer: 3
+  m_Name: Spawn
+  m_TagString: Spawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &562293122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562293121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588213265
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,11 +800,6 @@ Transform:
   - {fileID: 777872372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1186625215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1890706034474324509, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-  m_PrefabInstance: {fileID: 4090822522794591827}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1404146410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -871,7 +899,8 @@ PrefabInstance:
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
       value: 'A tombstone which contains the dates of the birth and death of the
-        kingdoms late Queen and ruler. '
+        kingdoms late Queen and ruler. Her death wasn''t just tragic for the kingdom,
+        of course, her family must miss her greatly too.  '
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueSprite
@@ -1178,6 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   rooms:
   - {fileID: 11400000, guid: e6670a5147d6e374d98e02a941eb6780, type: 2}
+  Levels: []
 --- !u!114 &1647507965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,6 +1515,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 6598068797127206469, guid: 588b7c59e5889b8408611c5ec7ff759d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598068797127206469, guid: 588b7c59e5889b8408611c5ec7ff759d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7567665894719122038, guid: 588b7c59e5889b8408611c5ec7ff759d, type: 3}
       propertyPath: door
       value: 
@@ -1636,7 +1674,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: 
+      value: 'A beautiful painting of the kingdoms luxurious castle. A beautiful
+        place that anyone would want to live. It must be extremely difficult to leave
+        there after getting used to it. '
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: renderer
@@ -1736,7 +1776,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1753,7 +1793,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1764,79 +1804,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3733768137240438207, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
   m_PrefabInstance: {fileID: 3162096369021121878}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4090822522794591827
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 555055660870521188, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890706034474324509, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526891356644608750, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1995661869}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646164989753674322, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7917072142035208405, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: dialoguePanel
-      value: 
-      objectReference: {fileID: 1186625215}
-    - target: {fileID: 8653454888370480057, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1995661869}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0fe39a73afb4053459f7671429b65bd4, type: 3}
 --- !u!1001 &8664691774934047106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1902,8 +1869,8 @@ SceneRoots:
   - {fileID: 1178209524}
   - {fileID: 8664691774934047106}
   - {fileID: 1647507963}
-  - {fileID: 4090822522794591827}
   - {fileID: 1306371698393783158}
   - {fileID: 3162096369021121878}
   - {fileID: 35650125}
   - {fileID: 1404146410}
+  - {fileID: 562293122}

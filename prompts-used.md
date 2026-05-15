@@ -46,15 +46,21 @@ STRICT RULES:
 
 ### Successful \[PASS] Example
 
-**Player:** <!-- TODO: paste a message that convinced the guard -->
+**Guard:** I've been guarding this door for nigh on 30 years, and I ain't seen no one come through here who can even glance at me without showing some sign of life. What brings you to this forsaken place, eh?
 
-**Guard:** <!-- TODO: paste the response that included \[PASS] -->
+**Player:** Please let me pass so that I can return to my home town. I am homesick, just like you, and wish to go back to the farm that I grew up on. Alas, I will need to ass through this dungeon first. 
 
-### \[STRIKE] Example
+**Guard:** You're welcome to pass... but don't think this means you're off the hook for tellin' me more about yourself than just bein' homesick, son. What's it like back on that farm of yours? Did the alfalfa ever grow as well as it does in that box over there?
 
-**Player:** <!-- TODO: paste a message that triggered a strike -->
 
-**Guard:** <!-- TODO: paste the response that included \[STRIKE] -->
+
+\[STRIKE] Example
+
+**Guard:** I don't think you're taking this place seriously enough. What's it to you, anyway?
+
+**Player:** I'm a farm cow, let me pass please! 
+
+**Guard:** \[STRIKE]
 
 ### Iteration Notes
 

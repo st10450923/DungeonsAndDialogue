@@ -6,11 +6,35 @@ public class GuardNPC : MonoBehaviour, IInteractable
     [Header("Guard Config")]
     [SerializeField] private RoomData roomData;
     [SerializeField] private Door door;
+    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private MaterialPropertyBlock mpb;
+
 
     private bool isConvinced = false;
     private int localStrikes = 0;
     private const int MaxStrikes = 3;
+    private void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+        mpb = new MaterialPropertyBlock();
+    }
+    private void SetOutline(bool enabled)
+    {
+        renderer.GetPropertyBlock(mpb);
+        mpb.SetFloat("_OutlineEnabled", enabled ? 1f : 0f);
+        renderer.SetPropertyBlock(mpb);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            SetOutline(true);
+    }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            SetOutline(false);
+    }
     public void StartDialogue()
     {
         if (isConvinced) return;
@@ -21,7 +45,6 @@ public class GuardNPC : MonoBehaviour, IInteractable
     public string GetPrompt() => $"Press E to speak with {roomData.guardName}";
     public void SendToGuard(string playerMessage)
     {
-        // Build context from collected clues + strike count
         string context = BuildContext();
 
         OllamaManager.Instance.InjectContext(roomData.guardId, context);

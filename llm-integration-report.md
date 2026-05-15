@@ -3,7 +3,7 @@
 **Student:** Ember Willow Jones
 **Module:** GADS7321
 **Date:** 15/05/2026
-**Word count:** TODO
+**Word count:** 733
 
 \---
 
@@ -21,7 +21,7 @@ incoherent responses. Switching to llama3.2:3b produced significantly
 more consistent behaviour while remaining within a practical storage footprint
 for local deployment.
 
-Two key parameters were tuned to improve performance. `num\_predict` was capped at
+Two key parameters were tuned to improve performance. `num\\\_predict` was capped at
 60 tokens, reducing average response time from approximately 16 seconds
 to 5 seconds while keeping responses appropriately brief for a game
 context. Temperature was set to 0.3, reducing the model's tendency to hallucinate
@@ -42,9 +42,9 @@ conversation history as system messages.
 
 `GuardNPC` handles the game logic layer of the integration. It passes player
 input to `OllamaManager`, then parses the response for two control tokens:
-`\[PASS]` and `\[STRIKE]`. These tokens are instructed in the system prompt and
-detected with a simple `Contains` check. When `\[PASS]` is detected the guard
-delivers a farewell response and the door unlocks. When `\[STRIKE]` is detected
+`\\\[PASS]` and `\\\[STRIKE]`. These tokens are instructed in the system prompt and
+detected with a simple `Contains` check. When `\\\[PASS]` is detected the guard
+delivers a farewell response and the door unlocks. When `\\\[STRIKE]` is detected
 the strike counter increments and the room resets at three strikes. This token
 approach keeps game logic cleanly separated from natural language output.
 
