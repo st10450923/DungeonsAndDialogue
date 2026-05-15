@@ -845,6 +845,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1368087791
       objectReference: {fileID: 0}
+    - target: {fileID: 3551911954396244324, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3886868080177657039, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -885,6 +889,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5091558173888852908, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 1890706034474324509}
     - target: {fileID: 5091558173888852908, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
       propertyPath: playerInputField
       value: 
@@ -978,6 +986,11 @@ PrefabInstance:
       addedObject: {fileID: 2444772555948911812}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
+--- !u!1 &1890706034474324509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551911954396244324, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
+  m_PrefabInstance: {fileID: 3132198584528141177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2330189010548618729 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 802116321130253968, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}

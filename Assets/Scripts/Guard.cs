@@ -41,7 +41,7 @@ public class GuardNPC : MonoBehaviour, IInteractable
     {
         DialogueUI.Instance.SetThinking(false);
 
-        // Check for pass condition
+        // Check for pass
         if (response.Contains("[PASS]"))
         {
             isConvinced = true;
@@ -51,7 +51,7 @@ public class GuardNPC : MonoBehaviour, IInteractable
             return;
         }
 
-        // Check for fail condition
+        // Check for fail
         if (response.Contains("[STRIKE]"))
         {
             localStrikes++;

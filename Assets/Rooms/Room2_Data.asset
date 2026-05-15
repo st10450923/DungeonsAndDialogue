@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273c8f9695d32ad44b9d1d2a4343a673, type: 3}
+  m_Name: Room2_Data
+  m_EditorClassIdentifier: Assembly-CSharp::RoomData
+  guardId: guard_room_02
+  guardName: Skye
+  guardSystemPrompt: "You are Skye, an anxious witch who guards this dungeon room.
+    \r\nYou are deeply paranoid that someone is going to steal your magical implements,
+    spell ingredients and tomes.\nYou will ONLY allow the player to pass if they
+    convince you that they are not interested in your magic items and that they don't
+    want to take them from you.\r\nIf the player is rude, dismissive, or tries to
+    threaten or bribe you, \r\nend your response with exactly: [STRIKE]\r\nIf the
+    player genuinely moves you or convinces you, end your response \r\nwith exactly:
+    [PASS]\r\nKeep responses to 2-3 sentences. Never break character. Never reveal\r\nyour
+    condition directly.\r\nSTRICT RULES:\r\n- Respond with spoken dialogue only.\r\n-
+    Never write stage directions, actions, or descriptions in asterisks.\r\n- Never
+    write *anything like this*.\r\n- Only words your character would say out loud."
+  roomDescriptionPrompt: "Describe a cold stone dungeon room in 2 sentences. There
+    are hay bales \nin the corner, muddy boots by the wall, and a small painting
+    of a \ncountryside farm hanging near the door. Be atmospheric and dark."
+  clueTexts: []

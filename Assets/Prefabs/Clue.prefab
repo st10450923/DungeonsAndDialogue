@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6938158207995301576}
   - component: {fileID: 7817463679851264865}
   - component: {fileID: 5095515619178249194}
+  - component: {fileID: 6526239640961680553}
+  - component: {fileID: 309445777861704946}
   m_Layer: 3
   m_Name: Clue
   m_TagString: Clue
@@ -109,9 +111,8 @@ MonoBehaviour:
   clueName: Stone
   clueText: This is a stone,,,
   clueSprite: {fileID: 21300000, guid: 9e5e200069c8ec14b857e10db776c146, type: 3}
-  UI: {fileID: 0}
-  interactPrompt: {fileID: 0}
-  glowEffect: {fileID: 0}
+  UI: {fileID: 5095515619178249194}
+  renderer: {fileID: 6938158207995301576}
 --- !u!114 &5095515619178249194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +129,88 @@ MonoBehaviour:
   clueTitleText: {fileID: 4335822754632991392}
   clueBodyText: {fileID: 2702722956577714488}
   closeButton: {fileID: 783832232248011929}
+--- !u!61 &6526239640961680553
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471601491113667475}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.2, y: 2}
+    newSize: {x: 2.2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.2, y: 2}
+  m_EdgeRadius: 0
+--- !u!58 &309445777861704946
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471601491113667475}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3
 --- !u!1001 &4096669872001217892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3733768137240438207}
     m_Modifications:
+    - target: {fileID: 3598343168794796622, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3619469992397478397, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -163,6 +250,22 @@ PrefabInstance:
     - target: {fileID: 3619469992397478397, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116005915817833619, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116005915817833619, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116005915817833619, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116005915817833619, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5667939178643130487, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
       propertyPath: m_Pivot.x
@@ -242,6 +345,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667939178643130487, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129022780717699893, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8807106545724296825, guid: 9bfabf5effb2b6f469b624d9daf8c2b5, type: 3}

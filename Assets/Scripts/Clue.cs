@@ -11,13 +11,19 @@ public class Clue : MonoBehaviour, IInteractable
 
  [Header("Visuals")]
     [SerializeField] private ClueUI UI;
-    [SerializeField] private GameObject interactPrompt; 
-    [SerializeField] private SpriteRenderer glowEffect;
+    //[SerializeField] private GameObject interactPrompt; 
+    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField]private MaterialPropertyBlock mpb;
+
 
     private bool hasBeenRead = false;
 
     //private void Start() => interactPrompt.SetActive(false);
-
+    private void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+        mpb = new MaterialPropertyBlock();
+    }
     public void Interact()
     {
         UI.ShowClue(clueName, clueText, clueSprite);
@@ -25,24 +31,27 @@ public class Clue : MonoBehaviour, IInteractable
         if (!hasBeenRead)
         {
             hasBeenRead = true;
-            // Notify GameManager so it gets injected into the guard's context
-            /*GameManager.Instance.ClueCollected(clueText);
-            if (glowEffect != null)
-   glowEffect.color = new Color(1f, 1f, 1f, 0.3f);            */
+            GameManager.Instance.ClueCollected(clueText);
+
         }
     }
-
+    private void SetOutline(bool enabled)
+    {
+        renderer.GetPropertyBlock(mpb);
+        mpb.SetFloat("_OutlineEnabled", enabled ? 1f : 0f);
+        renderer.SetPropertyBlock(mpb);
+    }
     public string GetPrompt() => $"Press E to examine {clueName}";
-    /*
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            interactPrompt.SetActive(true);
+            SetOutline(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            interactPrompt.SetActive(false);
-    }*/
+            SetOutline(false);
+    }
 }
