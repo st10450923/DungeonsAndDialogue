@@ -38,16 +38,20 @@ public class DialogueUI : MonoBehaviour
 
     public void OpenDialogue(string guardName, GuardNPC guard)
     {
+        dialoguePanel.SetActive(true);
         currentGuard = guard;
         guardNameText.text = guardName;
         responseText.text = "";
         playerInputField.text = "";
         strikeText.text = "";
-        dialoguePanel.SetActive(true);
         PlayerController.Instance.SetDialogueOpen(true);
         playerInputField.ActivateInputField();
     }
-
+    public void SetInputActive(bool active)
+    {
+        sendButton.interactable = active;
+        playerInputField.interactable = active;
+    }
     public void CloseDialogue()
     {
         dialoguePanel.SetActive(false);
@@ -59,8 +63,8 @@ public class DialogueUI : MonoBehaviour
 
     public void SetThinking(bool thinking)
     {
-        if (thinking) thinkingIndicator.Show();
-        else thinkingIndicator.Hide();
+        if (thinking) thinkingIndicator.Show(this);
+        else thinkingIndicator.Hide(this);
 
         sendButton.interactable = !thinking;
         playerInputField.interactable = !thinking;
@@ -71,10 +75,16 @@ public class DialogueUI : MonoBehaviour
         strikeText.text = $"Strikes: {current}/{max}";
         StartCoroutine(FlashStrike());
     }
-
-    public void ShowPassEffect()
+    private IEnumerator PassSequence(string farewell, System.Action onComplete)
     {
+        responseText.text = farewell;
+        yield return new WaitForSeconds(3f);
         CloseDialogue();
+        onComplete?.Invoke();
+    }
+    public void ShowPassEffect(string farewell, System.Action onComplete)
+    {
+        StartCoroutine(PassSequence(farewell, onComplete));
     }
 
     public void ShowError(string err) => responseText.text = $"<color=red>{err}</color>";

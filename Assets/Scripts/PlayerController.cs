@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.eKey.wasPressedThisFrame && !isDialogueOpen)
             TryInteract();
         UpdateAnimation();
     }
@@ -53,11 +53,25 @@ public class PlayerController : MonoBehaviour
     }
     private void TryInteract()
     {
-        Vector2 center = interactibleCenter != null ? (Vector2)interactibleCenter.transform.position : (Vector2)transform.position;
-        Collider2D hit = Physics2D.OverlapCircle(center, interactRange, interactableLayer);
+        Vector2 center = interactibleCenter != null
+            ? (Vector2)interactibleCenter.transform.position
+            : (Vector2)transform.position;
 
-        if (hit != null && hit.TryGetComponent<IInteractable>(out var interactable))
-            interactable.Interact();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(interactableLayer);
+        filter.useTriggers = true;
+
+        Collider2D[] results = new Collider2D[5];
+        int count = Physics2D.OverlapCircle(center, interactRange, filter, results);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (results[i].TryGetComponent<IInteractable>(out var interactable))
+            {
+                interactable.Interact();
+                return;
+            }
+        }
     }
 
 

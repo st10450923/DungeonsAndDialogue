@@ -43,10 +43,8 @@ public class GameManager : MonoBehaviour
         OllamaManager.Instance.ClearHistory(rooms[CurrentRoomIndex].guardId);
         PlayerData.Instance.ResetStrikes();
 
-        // Find and reset the door
         FindFirstObjectByType<Door>()?.ResetDoor();
 
-        // Reload the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

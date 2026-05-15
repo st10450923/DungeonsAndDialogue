@@ -9,15 +9,19 @@ public class ThinkingIndicator : MonoBehaviour
 
     private Coroutine animCoroutine;
 
-    public void Show()
+    public void Show(MonoBehaviour host)
     {
         gameObject.SetActive(true);
-        animCoroutine = StartCoroutine(AnimateDots());
+        animCoroutine = host.StartCoroutine(AnimateDots());
     }
 
-    public void Hide()
+    public void Hide(MonoBehaviour host)
     {
-        if (animCoroutine != null) StopCoroutine(animCoroutine);
+        if (animCoroutine != null)
+        {
+            host.StopCoroutine(animCoroutine);
+            animCoroutine = null;
+        }
         gameObject.SetActive(false);
     }
 
