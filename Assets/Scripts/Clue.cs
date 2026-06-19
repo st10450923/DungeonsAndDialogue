@@ -7,8 +7,9 @@ public class Clue : MonoBehaviour, IInteractable
     [SerializeField] private string clueName;
     [TextArea(2, 5)]
     [SerializeField] private string clueText;
+    [SerializeField] private Sprite clueSprite; 
 
-    [Header("Visuals")]
+ [Header("Visuals")]
     [SerializeField] private ClueUI UI;
     //[SerializeField] private GameObject interactPrompt; 
     [SerializeField] private SpriteRenderer renderer;
@@ -23,11 +24,9 @@ public class Clue : MonoBehaviour, IInteractable
         renderer = GetComponent<SpriteRenderer>();
         mpb = new MaterialPropertyBlock();
     }
-
-
     public void Interact()
     {
-        UI.ShowClue(clueName, clueText);
+        UI.ShowClue(clueName, clueText, clueSprite);
 
         if (!hasBeenRead)
         {

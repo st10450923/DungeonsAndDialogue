@@ -18,17 +18,7 @@ public class OllamaManager : MonoBehaviour
     private string defaultSystemPrompt =
         "You are an NPC in a dark fantasy dungeon. Respond in character. " +
         "Keep responses under 3 sentences. Never break character.";
-    const string BaseRules = @"
-You will ONLY allow the player to pass if they sincerely convince you they have no interest in your magical items and will not take them.
-If the player is rude, dismissive, or tries to threaten or bribe you, reprimand them and end your response with exactly: [STRIKE]
-If the player genuinely moves you or convinces you, end your response with exactly: [PASS]
-Keep responses to 2-3 sentences. Never break character. Never reveal your condition directly.
-STRICT RULES:
-- Respond with only spoken words your character says out loud.
-- Never write stage directions, actions, descriptions, or thoughts.
-- Never use asterisks, brackets (except [STRIKE] or [PASS]), or narrative text.
-- Bad example (do NOT do this): She eyes you suspiciously. ""Stay away from my things!""
-- Good example: ""Keep your hands where I can see them. I know what wanderers like you are after.""";
+
     public static OllamaManager Instance { get; private set; }
 
     private Dictionary<string, List<Message>> conversationHistories = new();
@@ -38,30 +28,6 @@ STRICT RULES:
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        LaunchOllama();
-
-    }
-
-    private void LaunchOllama()
-    {
-        try
-        {
-            var process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = "ollama",
-                Arguments = "serve",
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true
-            };
-            process.Start();
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogWarning($"Could not start Ollama: {e.Message}");
-        }
     }
     public void SendMessage(
         string npcId,
@@ -73,6 +39,7 @@ STRICT RULES:
         if (!conversationHistories.ContainsKey(npcId))
             conversationHistories[npcId] = new List<Message>();
 
+        // Append the player's message to history
         conversationHistories[npcId].Add(new Message("user", userMessage));
 
         string prompt = string.IsNullOrEmpty(systemPrompt) ? defaultSystemPrompt : systemPrompt;
@@ -143,10 +110,9 @@ STRICT RULES:
 
     private List<Message> BuildMessageList(string npcId, string systemPrompt)
     {
-        string fullprompt = $"{systemPrompt}\n\n{BaseRules}";
         var messages = new List<Message>
         {
-            new Message("system", fullprompt)
+            new Message("system", systemPrompt)
         };
         messages.AddRange(conversationHistories[npcId]);
         return messages;

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private RoomData[] rooms;
+    [SerializeField] private Scene[]Levels;
     public int CurrentRoomIndex { get; private set; } = 0;
     public List<string> CollectedClues { get; private set; } = new();
 
