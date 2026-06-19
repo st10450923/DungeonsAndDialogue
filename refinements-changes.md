@@ -10,20 +10,24 @@
   * Significantly improved coherence and instruction following
   * Better at maintaining character persona across conversation turns
 
+
+
 ## Performance Optimisation
 
-* Added `num\\\_predict: 60` to cap response token length
+* Added `num\\\\\\\_predict: 60` to cap response token length
 
   * Reduced average response time from 16s to 5s
 * Added `temperature: 0.3` to reduce hallucination and improve on-topic responses
 
   * Lower temperature made guard personalities more consistent across playtests
 
+
+
 ## Prompt Engineering Iterations
 
 ### Stage Direction Problem
 
-* **Issue:** Model kept producing stage directions in asterisks e.g. `\\\*looks over shoulder\\\*`
+* **Issue:** Model kept producing stage directions in asterisks e.g. `\\\\\\\*looks over shoulder\\\\\\\*`
 * **Fix:** Added explicit STRICT RULES block to all prompts:
 
 ```
@@ -36,6 +40,8 @@
 * **Additional fix:** Added regex strip in `GuardNPC.CleanResponse()` to remove any
 remaining asterisk content as a code-level safety net
 
+
+
 ### Token Reliability
 
 * **Issue:** Model occasionally produced \[PASS] or \[STRIKE] mid-response rather than at the end
@@ -43,10 +49,14 @@ remaining asterisk content as a code-level safety net
 * **Additional fix:** Used `response.Contains()` rather than endsWith check so tokens
 are caught regardless of position
 
+
+
 ### Convince Condition Leaking
 
 * **Issue:** Guard occasionally hinted too directly at their convince condition
 * **Fix:** Added `Never reveal your condition directly` instruction to all prompts
+
+
 
 ## Technical Fixes
 
@@ -56,7 +66,7 @@ to fix trigger detection not working outside of runtime layer overrides
 than ThinkingIndicator itself to fix inactive GameObject coroutine error
 * **Input System:** Removed legacy `Input.GetKeyDown` usage, replaced with
 `Keyboard.current.eKey.wasPressedThisFrame` for compatibility with new Input System
-* **Dialogue reopen bug:** Added `\\\&\\\& !isDialogueOpen` guard to E key check to prevent
+* **Dialogue reopen bug:** Added `\\\\\\\&\\\\\\\& !isDialogueOpen` guard to E key check to prevent
 dialogue restarting while player is typing
 
 ## Scope Changes
@@ -67,9 +77,9 @@ dialogue restarting while player is typing
 
 ## Playtesting Notes
 
-* Had to add in more specific instructions as it insisted on adding in narrative text and actions in brackets/asterisks. Additionally added in good/bad examples of responses. 
+* Had to add in more specific instructions as it insisted on adding in narrative text and actions in brackets/asterisks. Additionally added in good/bad examples of responses.
 
-Went from 
+Went from
 
 '''
 
@@ -87,7 +97,7 @@ Respond with only spoken words your character says out loud."
 
 '''
 
-to 
+to
 
 '''
 
@@ -103,5 +113,61 @@ Never write stage directions, actions, descriptions, or thoughts.
 
 '''
 
-* 
+
+
+
+
+## Feedback-Driven Refinements (Post-Makers Massive)
+
+
+
+### UI \& Quality of Life
+
+
+
+
+
+**Enter to submit:** Added Update() method to DialogueUI with Input.GetKeyDown(KeyCode.Return) and KeyCode.KeypadEnter to submit dialogue without clicking the send button
+
+Escape to close: Added Input.GetKeyDown(KeyCode.Escape) in the same Update() to close the dialogue panel
+
+
+
+Both shortcuts are gated behind dialoguePanel.activeSelf and sendButton.interactable checks to prevent misfires during LLM response
+
+
+
+
+
+**Quit button:** Wired game over quit button to Application.Quit() — previously non-functional
+
+Restart to menu: Wired restart button to SceneManager.LoadScene("MainMenu") — previously absent
+
+
+
+
+
+### Room Content \& Environmental Storytelling
+
+
+
+
+
+**Issue:** Attendee feedback at Makers Massive indicated rooms felt sparse, weakening the evidence-gathering loop
+
+**Fix:** Added new interactable clue objects to all three dungeon rooms:
+
+
+
+**Andrew's room:** Pot Plant, Farm Painting 
+
+**Skye's room:** Wizard's Desk, Potion Cupboard 
+
+**Alyssa's room:** Feast Table
+
+
+
+
+
+**Art assets:** Updated visual assets across rooms to improve overall polish in response to presentation feedback
 

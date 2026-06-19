@@ -450,13 +450,15 @@ PrefabInstance:
       objectReference: {fileID: 251977414}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueName
-      value: Pentagram
+      value: Wizards Desk
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: A pentagram painted in blood across the floor. It has been drawn neatly,
-        and with great care. This is a symbol of protection and warding, often used
-        to protect spellcasters and their implements or homes.
+      value: A cluttered but meticulously organised desk covered in open tomes, scattered
+        notes, and half-finished diagrams. Everything has clearly been placed with
+        intention - nothing here is accidental. A lock has been fitted to the single
+        drawer, and scratches around the keyhole suggest it has been locked and unlocked
+        many times.
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: renderer
@@ -1409,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone
@@ -1509,13 +1511,14 @@ PrefabInstance:
       objectReference: {fileID: 1407939901}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueName
-      value: Pentagram
+      value: Potion Cupboard
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: A pentagram painted in blood across the floor. It has been drawn neatly,
-        and with great care. This is a symbol of protection and warding, often used
-        to protect spellcasters and their implements or homes.
+      value: A tall wooden cupboard sealed shut with an iron padlock and what appears
+        to be a wax seal inscribed with a small rune. Through the thin gaps in the
+        wood, the faint smell of something herbal and sharp seeps out. Whatever is
+        inside, its owner did not want anyone getting to it easily.
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: renderer
@@ -2285,7 +2288,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone

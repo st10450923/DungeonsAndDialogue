@@ -1,6 +1,6 @@
 # Dungeons and Dialogue
 
-An AI-powered no-combat dungeon crawler where you have to persuade your way through the dungeon by getting to know the guards personalities and convincing them to let you through. 
+An AI-powered no-combat dungeon crawler where you have to persuade your way through the dungeon by getting to know the guards personalities and convincing them to let you through.
 
 ## Overview
 
@@ -70,6 +70,8 @@ Assets/
 |`refinements-changes.md`|Iteration log and scope changes|
 |`prompts-used.md`|All guard prompts with examples|
 |`llm-integration-report.md`|Full integration report|
+|'critical-feedback'|Response to feedback and changes made|
+|'feedback-summary'|Summary of feedback|
 
 ## Credits
 
@@ -78,6 +80,7 @@ Assets/
 * LLM: Ollama (https://ollama.com) — locally hosted, no data sent externally
 * Brackey's Mega Asset Pack (https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430)
 * 2D Sprite Outline by Hannah Fiani(https://assetstore.unity.com/packages/vfx/shaders/2d-sprite-outline-109669#publisher)
+* Epic RPG World - Free House Interiorsby Rafael Matos(https://assetstore.unity.com/packages/2d/environments/epic-rpg-world-free-house-interiors-340276)
 * AI assistance: Claude (Anthropic) used for code generation and debugging during development
 
 ## AI Transparency

@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone
@@ -699,7 +699,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: aebffbda339ac2e49a2faac9b60a36a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.96}
@@ -716,8 +716,8 @@ Transform:
   m_GameObject: {fileID: 299438842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.93, y: -3.17, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 5.3, y: -3.47, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone
@@ -1919,13 +1919,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5a6db85ebb9466f4b90af9ebdd3c4fdc, type: 2}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueName
-      value: Planter Box
+      value: Pot plant
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: 'A box used for growing small plants, catchign the few beams of light
-        that leak through the ceiling of this decrepit place. There is some alfalfa
-        growing in the box.  '
+      value: "A small potted plant, sitting in a clay pot that looks far too domestic
+        for a dungeon. Someone has been tending to it carefully \u2014 the soil is
+        moist and the leaves are healthy. It seems out of place here, like a small
+        piece of somewhere warmer."
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueSprite
@@ -2185,7 +2186,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone
@@ -2412,7 +2413,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone
@@ -2516,13 +2517,14 @@ PrefabInstance:
       objectReference: {fileID: 1913639323}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueName
-      value: Sporadic vegetation
+      value: Farm Painting
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: clueText
-      value: Some plant life has managed to grow here through the cracks in the stone
-        dungeon floor. A marvelous feat that only someone with a particularly green
-        thumb might have achieved.
+      value: A faded painting hung crookedly on the stone wall, depicting a wide
+        countryside farm at golden hour. Rolling fields, a farmhouse, a dirt path
+        lined with fence posts. It's old and worn at the edges, like it's been handled
+        many times before being put up.
       objectReference: {fileID: 0}
     - target: {fileID: 7817463679851264865, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: renderer
@@ -2932,7 +2934,7 @@ PrefabInstance:
       objectReference: {fileID: 1995661869}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3233218911057264808, guid: 75f770ea032076c4e8fbedf703f8f977, type: 3}
       propertyPath: m_UpdateRectTransformForStandalone

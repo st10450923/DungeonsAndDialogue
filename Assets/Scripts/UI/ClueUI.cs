@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ClueUI : MonoBehaviour
 {
@@ -17,7 +18,13 @@ public class ClueUI : MonoBehaviour
         cluePanel.SetActive(false);
         closeButton.onClick.AddListener(CloseClue);
     }
-
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            CloseClue();
+        }
+    }
     public void ShowClue(string title, string body, Sprite image = null)
     {
         Debug.Log($"Showing clue: {title}");

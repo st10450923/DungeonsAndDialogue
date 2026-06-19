@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -34,7 +35,21 @@ public class DialogueUI : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    private void Update()
+    {
+        if (!dialoguePanel.activeSelf) return;
 
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            if (sendButton.interactable)
+                OnSend();
+        }
+
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            CloseDialogue();
+        }
+    }
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
