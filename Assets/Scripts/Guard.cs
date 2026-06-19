@@ -8,6 +8,7 @@ public class GuardNPC : MonoBehaviour, IInteractable
     [SerializeField] private Door door;
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private MaterialPropertyBlock mpb;
+    [SerializeField] private NPCVoice npcVoice;
 
 
     private bool isConvinced = false;
@@ -17,6 +18,7 @@ public class GuardNPC : MonoBehaviour, IInteractable
     {
         renderer = GetComponent<SpriteRenderer>();
         mpb = new MaterialPropertyBlock();
+
     }
     private void SetOutline(bool enabled)
     {
@@ -64,31 +66,31 @@ public class GuardNPC : MonoBehaviour, IInteractable
     {
         DialogueUI.Instance.SetThinking(false);
 
-        // Check for pass
         if (response.Contains("[PASS]"))
         {
             isConvinced = true;
             string cleanResponse = response.Replace("[PASS]", "").Trim();
             DialogueUI.Instance.ShowResponse(cleanResponse);
+            if (!string.IsNullOrEmpty(cleanResponse))
+                npcVoice?.Speak(cleanResponse);
             RequestFarewell();
             return;
         }
 
-        // Check for fail
         if (response.Contains("[STRIKE]"))
         {
             localStrikes++;
             string cleanResponse = response.Replace("[STRIKE]", "").Trim();
             DialogueUI.Instance.ShowResponse(cleanResponse);
+            if (!string.IsNullOrEmpty(cleanResponse))
+                npcVoice?.Speak(cleanResponse);
             DialogueUI.Instance.ShowStrike(localStrikes, MaxStrikes);
-
-            if (localStrikes >= MaxStrikes)
-                HandleRoomFail();
-
+            if (localStrikes >= MaxStrikes) HandleRoomFail();
             return;
         }
 
         DialogueUI.Instance.ShowResponse(response);
+        npcVoice?.Speak(response);
     }
     private void RequestFarewell()
     {

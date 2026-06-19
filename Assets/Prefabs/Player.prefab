@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.64, y: -0.29, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2120414037310382644}
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300020, guid: addd2af175d074643a3b1f29f6c23041, type: 3}
+  m_Sprite: {fileID: 5481432601267060842, guid: 6473f53e06d3072459dfba8623423e51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 555055660870521188}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c148010424570654997acde04df07efe, type: 2}
+  m_Controller: {fileID: 9100000, guid: 791f1a2da5c460941bcc8bbd6e3b9889, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 8
-  animatorController: {fileID: 9100000, guid: c148010424570654997acde04df07efe, type: 2}
   animator: {fileID: 4145490697621362155}
   spriteRenderer: {fileID: 8965910824579363964}
   interactibleCenter: {fileID: 5372009807506598390}
@@ -245,17 +244,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.8}
+  m_Offset: {x: 0, y: 0.105}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.5, y: 1.6}
+    oldSize: {x: 0.18, y: 0.21}
     newSize: {x: 1.5, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5, y: 1.6}
+  m_Size: {x: 0.168, y: 0.2}
   m_EdgeRadius: 0
 --- !u!1 &2804778224935407949
 GameObject:
@@ -670,9 +669,9 @@ Transform:
   m_GameObject: {fileID: 5372009807506598390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6646164989753674322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -847,7 +846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3551911954396244324, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3886868080177657039, guid: da383d22695bed344b8f3d8c2cd3a4ec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

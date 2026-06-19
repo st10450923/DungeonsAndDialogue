@@ -9,20 +9,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField]private GameObject interactibleCenter;
+    [SerializeField] private GameObject interactibleCenter;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isDialogueOpen = false;
+
     public static PlayerController Instance { get; private set; }
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
+
+    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawn");
+        if (spawnPoint != null)
+            transform.SetPositionAndRotation(
+                spawnPoint.transform.position,
+                spawnPoint.transform.rotation);
+
+        rb.linearVelocity = Vector2.zero;
+        moveInput = Vector2.zero;
+    }
+
     public void OnMove(InputValue value)
     {
         if (!isDialogueOpen)
@@ -40,12 +58,19 @@ public class PlayerController : MonoBehaviour
             TryInteract();
         UpdateAnimation();
     }
+
     private void UpdateAnimation()
     {
-        if (animator == null) return;      
-        animator.SetBool("Walking", moveInput != Vector2.zero);
-        spriteRenderer.flipX = moveInput.x < 0;
+        if (animator == null) return;
+        bool isMoving = moveInput != Vector2.zero;
+        animator.SetBool("Walking", isMoving);
+        if (isMoving)
+        {
+            animator.SetFloat("DirectionX", moveInput.x);
+            animator.SetFloat("DirectionY", moveInput.y);
+        }
     }
+
     private void TryInteract()
     {
         Vector2 center = interactibleCenter != null
@@ -67,25 +92,6 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawn");
-        if (spawnPoint != null)
-        {
-            transform.position = spawnPoint.transform.position;
-            transform.rotation = spawnPoint.transform.rotation;
-        }
-        rb.linearVelocity = Vector2.zero;
-    }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void SetDialogueOpen(bool open)

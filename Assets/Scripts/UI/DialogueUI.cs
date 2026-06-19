@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,41 +24,30 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Button closeButton;
 
     private GuardNPC currentGuard;
+    private bool isThinking;
 
     private void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawn");
-        if (spawnPoint != null)
-        {
-            transform.position = spawnPoint.transform.position;
-            transform.rotation = spawnPoint.transform.rotation;
-        }
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null) rb.linearVelocity = Vector3.zero;
-    }
     private void Start()
     {
         sendButton.onClick.AddListener(OnSend);
         closeButton.onClick.AddListener(CloseDialogue);
         dialoguePanel.SetActive(false);
     }
+    private void Update()
+    {
+        if (!dialoguePanel.activeSelf) return;
 
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            CloseDialogue();
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame&& !isThinking)
+            OnSend();
+    }
     public void OpenDialogue(string guardName, GuardNPC guard)
     {
         dialoguePanel.SetActive(true);
@@ -85,6 +75,7 @@ public class DialogueUI : MonoBehaviour
 
     public void SetThinking(bool thinking)
     {
+        isThinking = thinking;
         if (thinking) thinkingIndicator.Show(this);
         else thinkingIndicator.Hide(this);
 
@@ -122,8 +113,11 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator FlashStrike()
     {
-        strikeText.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        strikeText.color = Color.white;
+        for (int i = 0; i < 2; i++)
+        {
+            strikeText.color = Color.red;
+            yield return new WaitForSeconds(0.4f);
+            strikeText.color = Color.white;
+        }
     }
 }

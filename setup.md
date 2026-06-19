@@ -27,7 +27,7 @@ Open a terminal and run:
 ollama pull llama3.2:3b
 ```
 
-Wait for the download to complete (\~2GB). 
+Wait for the download to complete (\~2GB).
 
 Verify with:
 
@@ -94,8 +94,8 @@ Leave this terminal open while playing.
 
 * Game developed by Ember Willow Jones
 * Built with Unity 6000.3.10f1
-* LLM integration via Ollama 
-* Brackey's Mega Asset Pack (https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430) 
+* LLM integration via Ollama
+* Brackey's Mega Asset Pack (https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430)
 * 2D Sprite Outline by Hannah Fiani(https://assetstore.unity.com/packages/vfx/shaders/2d-sprite-outline-109669#publisher)
 * AI tools used in development: Claude (Anthropic) for code assistance
 
